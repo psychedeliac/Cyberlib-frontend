@@ -175,8 +175,67 @@
   border-radius: 4px;
 }
 
-/* Responsive adjustments */
+/* ===== MOBILE FULLSCREEN POPUP STYLES ===== */
+/* Override chatbot popup styles for mobile when used as popup from landing page */
 @media (max-width: 768px) {
+  /* Full screen chatbot popup on mobile */
+  .chatbot-popup {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    z-index: 9999 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Make the chatbot container fill the full screen */
+  .chatbot-popup .chatbot-container {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Adjust chatbot header for full screen */
+  .chatbot-popup .chatbot-header {
+    padding: 15px 20px !important;
+    border-radius: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Make chat window take up remaining space */
+  .chatbot-popup .chat-window {
+    flex: 1 !important;
+    margin: 0 !important;
+    margin-bottom: 10px !important;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+    border-radius: 8px !important;
+    max-height: none !important;
+    height: auto !important;
+  }
+
+  /* Adjust input container for full screen */
+  .chatbot-popup .input-container {
+    margin: 0 10px 10px 10px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Hide chatbot toggle when popup is open */
+  .chatbot-popup.active ~ .chatbot-toggle {
+    display: none !important;
+  }
+
+  /* Regular chatbot page styles for mobile */
   .chatbot-page {
     flex-direction: column;
   }
@@ -198,6 +257,17 @@
 }
 
 @media (max-width: 640px) {
+  /* Additional adjustments for smaller screens */
+  .chatbot-popup .input-container {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+  
+  .chatbot-popup .input-container button {
+    width: 100% !important;
+  }
+
+  /* Regular chatbot page styles for small screens */
   .chatbot-container {
     padding: 15px;
     margin: 5px;
@@ -214,6 +284,4 @@
   .chat-window {
     max-height: 50vh;
   }
-} 
-
-  
+}
