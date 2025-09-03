@@ -5,6 +5,8 @@ import SearchBar from '../components/SearchBar';
 import SearchResults from '../components/SearchResults';
 import './SearchPage.css';
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 const SearchPage = () => {
   const [searchResults, setSearchResults] = useState({ books: [], authors: [] });
   const [loading, setLoading] = useState(false);
@@ -38,7 +40,7 @@ const SearchPage = () => {
       const token = localStorage.getItem('token');
       if (!token) throw new Error('No authentication token found');
 
-      const res = await axios.get(`/api/books/search?q=${encodeURIComponent(query)}`, {
+      const res = await axios.get(`${API_URL}/books/search?q=${encodeURIComponent(query)}`, {
         headers: { 'Authorization': `Bearer ${token}` },
       });
 
