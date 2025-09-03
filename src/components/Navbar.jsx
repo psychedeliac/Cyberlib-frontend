@@ -171,7 +171,52 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       {isMobile && (
-        <div style={mobileMenuStyle}>
+        <div 
+          style={mobileMenuStyle}
+          onClick={(e) => {
+            // Close menu if clicking on the overlay background
+            if (e.target === e.currentTarget) {
+              setIsMobileMenuOpen(false);
+            }
+          }}
+        >
+          {/* Back/Close Button */}
+          <div style={{
+            position: 'absolute',
+            top: '2rem',
+            left: '2rem',
+            cursor: 'pointer',
+            padding: '0.5rem',
+            border: '1px solid #00ffcc',
+            borderRadius: '4px',
+            backgroundColor: '#0f0f0f',
+            color: '#00ffcc',
+            fontFamily: "'Courier New', Courier, monospace",
+            fontSize: '0.9rem',
+            fontWeight: 'bold',
+            letterSpacing: '1px',
+            textShadow: '0 0 5px rgba(0, 255, 204, 0.5)',
+            boxShadow: '0 0 10px rgba(0, 255, 204, 0.3)',
+            transition: 'all 0.3s ease',
+            textTransform: 'uppercase'
+          }}
+          onClick={() => setIsMobileMenuOpen(false)}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = '#00ffcc';
+            e.currentTarget.style.color = '#0f0f0f';
+            e.currentTarget.style.boxShadow = '0 0 20px rgba(0, 255, 204, 0.8)';
+            e.currentTarget.style.textShadow = 'none';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = '#0f0f0f';
+            e.currentTarget.style.color = '#00ffcc';
+            e.currentTarget.style.boxShadow = '0 0 10px rgba(0, 255, 204, 0.3)';
+            e.currentTarget.style.textShadow = '0 0 5px rgba(0, 255, 204, 0.5)';
+          }}
+          >
+            ← BACK
+          </div>
+
           <div style={{
             display: 'flex',
             flexDirection: 'column',
@@ -199,35 +244,20 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Close button */}
+          {/* Close instruction */}
           <div style={{
             position: 'absolute',
             bottom: '2rem',
             color: '#00ffcc',
             fontFamily: "'Courier New', Courier, monospace",
-            fontSize: '0.9rem',
-            opacity: '0.7',
-            letterSpacing: '1px'
+            fontSize: '0.8rem',
+            opacity: '0.6',
+            letterSpacing: '1px',
+            textAlign: 'center'
           }}>
-            TAP ANYWHERE TO CLOSE
+            TAP BACKGROUND OR BACK BUTTON TO CLOSE
           </div>
         </div>
-      )}
-
-      {/* Mobile menu backdrop */}
-      {isMobile && isMobileMenuOpen && (
-        <div 
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            zIndex: 999,
-            cursor: 'pointer'
-          }}
-          onClick={() => setIsMobileMenuOpen(false)}
-        />
       )}
     </>
   );
