@@ -280,6 +280,16 @@ body {
 @media (max-width: 768px) {
   .cyber-hero {
     height: 30vh;
+    /* Change to background image approach for mobile */
+    background-image: url('./banner1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* Hide the img element on mobile and use background instead */
+  .cyber-hero .hero-image {
+    display: none;
   }
 
   .cyber-content {
