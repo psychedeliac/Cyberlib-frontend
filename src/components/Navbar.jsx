@@ -84,7 +84,7 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { path: '/auth', name: localStorage.getItem('token') ? 'LOGOUT' : 'LOGIN' },
+    { path: '/auth', name: localStorage.getItem('token') ? 'LOGOUT' : 'LOGIN/LOGOUT' },
     { path: '/search', name: 'SEARCH' },
     { path: '/profile', name: 'PROFILE' },
     { path: '/user/books', name: 'YOUR BOOKS' },
@@ -264,3 +264,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
