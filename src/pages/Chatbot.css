@@ -215,19 +215,24 @@
   /* Make chat window take up remaining space */
   .chatbot-popup .chat-window {
     flex: 1 !important;
-    margin: 0 !important;
-    margin-bottom: 10px !important;
-    margin-left: 10px !important;
-    margin-right: 10px !important;
+    margin: 10px !important;
+    margin-bottom: 15px !important;
     border-radius: 8px !important;
     max-height: none !important;
     height: auto !important;
+    /* Ensure it doesn't take too much space and leaves room for input */
+    max-height: calc(100vh - 180px) !important;
   }
 
-  /* Adjust input container for full screen */
+  /* Adjust input container for full screen - keep it visible and accessible */
   .chatbot-popup .input-container {
-    margin: 0 10px 10px 10px !important;
+    margin: 0 15px 20px 15px !important;
     flex-shrink: 0 !important;
+    position: sticky !important;
+    bottom: 0 !important;
+    background-color: #0a0a0a !important;
+    padding: 10px 0 !important;
+    border-top: 1px solid rgba(0, 255, 136, 0.2) !important;
   }
 
   /* Hide chatbot toggle when popup is open */
